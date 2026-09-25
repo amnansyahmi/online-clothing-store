@@ -4,7 +4,11 @@ import { products, productArt, renderGarment } from './garments.js';
 
 function fakeCanvas() {
   const calls=[];
-  return {calls,beginPath(){},moveTo(...args){calls.push(['move',...args])},lineTo(...args){calls.push(['line',...args])},closePath(){},fill(){calls.push(['fill'])},stroke(){},save(){},restore(){},arc(){}};
+  return {
+    calls,beginPath(){},moveTo(...args){calls.push(['move',...args])},lineTo(...args){calls.push(['line',...args])},
+    closePath(){},fill(){calls.push(['fill'])},stroke(){},save(){},restore(){},arc(){},clip(){},translate(){},rotate(){},
+    fillRect(){calls.push(['print'])},fillText(){calls.push(['print'])},
+  };
 }
 const mapping={width:400,height:720,x:x=>x*400,y:y=>y*720};
 function samplePose(withLegs=true) {
@@ -15,19 +19,31 @@ function samplePose(withLegs=true) {
 }
 
 test('catalog includes every garment type and unique product identifiers',()=>{
-  assert.deepEqual(new Set(products.map(p=>p.type)),new Set(['top','dress','pants']));
+  assert.deepEqual(new Set(products.map(p=>p.type)),new Set(['tee','shirt','dress','pants']));
   assert.equal(new Set(products.map(p=>p.id)).size,products.length);
   products.forEach(p=>assert.match(productArt(p),/<svg[\s\S]*<\/svg>/));
+});
+
+test('T-shirt designs are distinct in the catalog and printable on the camera overlay',()=>{
+  const tees=products.filter(p=>p.type==='tee');
+  assert.equal(tees.length,4);
+  assert.equal(new Set(tees.map(p=>p.design)).size,tees.length);
+  for(const tee of tees){
+    assert.match(productArt(tee),/clip-path=/);
+    const ctx=fakeCanvas();
+    assert.equal(renderGarment(ctx,tee,samplePose(),mapping),true);
+    assert.ok(ctx.calls.some(call=>call[0]==='print')||tee.design==='contour',tee.id);
+  }
 });
 
 test('all garment types draw when the needed body landmarks are visible',()=>{
   for(const product of products){const ctx=fakeCanvas();assert.equal(renderGarment(ctx,product,samplePose(),mapping),true,product.id);assert.ok(ctx.calls.some(call=>call[0]==='fill'),product.id)}
 });
 
-test('trousers need legs; tops and dresses keep rendering when legs are outside the frame',()=>{
+test('trousers need legs; T-shirts and dresses keep rendering when legs are outside the frame',()=>{
   const pose=samplePose(false);
   assert.equal(renderGarment(fakeCanvas(),products.find(p=>p.type==='pants'),pose,mapping),false);
-  assert.equal(renderGarment(fakeCanvas(),products.find(p=>p.type==='top'),pose,mapping),true);
+  assert.equal(renderGarment(fakeCanvas(),products.find(p=>p.type==='tee'),pose,mapping),true);
   assert.equal(renderGarment(fakeCanvas(),products.find(p=>p.type==='dress'),pose,mapping),true);
 });
 

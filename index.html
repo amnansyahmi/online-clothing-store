@@ -4,44 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="theme-color" content="#f7f7f4" />
-    <meta name="description" content="A prototype clothing catalog with live camera try-on." />
+    <meta name="description" content="Browse original sportswear samples and preview them with your camera." />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./assets/icon-180.png" />
     <link rel="stylesheet" href="./styles.css" />
-    <title>Fitting Room | Camera try-on prototype</title>
+    <title>PACE | Sportswear sample store</title>
   </head>
   <body>
     <header class="site-header" id="top">
-      <a class="site-name" href="#top">Fitting Room<span class="site-name-mark" aria-hidden="true">/</span></a>
+      <a class="site-name" href="#top">PACE<span class="site-name-mark" aria-hidden="true">/</span></a>
       <nav aria-label="Main navigation">
-        <a href="#catalog">Garments</a>
-        <a href="#about-try-on">About the preview</a>
+        <a href="#catalog">Shop samples</a>
+        <a href="#about-try-on">How try-on works</a>
       </nav>
-      <span class="prototype-label">Prototype</span>
+      <span class="prototype-label">Sample store</span>
     </header>
 
     <main>
       <section class="catalog-intro page-width" aria-labelledby="catalog-title">
         <div>
-          <p class="overline">Camera try-on prototype</p>
-          <h1 id="catalog-title">Choose a garment.<br />See it on yourself.</h1>
+          <p class="overline">Original sportswear concepts</p>
+          <h1 id="catalog-title">T-Shirts<br />&amp; more.</h1>
         </div>
         <div class="intro-aside">
           <span class="intro-rule" aria-hidden="true"></span>
-          <p>Pick a sample piece and open the camera. The preview follows your pose as you move.</p>
-          <p class="sample-disclosure">These are demonstration garments, not items for sale.</p>
+          <p>Explore different T-shirt graphics, plus shirts, dresses and trousers. Pick a piece to preview it on camera.</p>
+          <p class="sample-disclosure">Concept products only. Checkout and sizing are not available yet.</p>
         </div>
       </section>
 
       <section class="catalog page-width" id="catalog" aria-labelledby="catalog-heading">
         <div class="catalog-toolbar">
-          <h2 id="catalog-heading">Sample garments <span id="result-count">6</span></h2>
+          <h2 id="catalog-heading">The collection <span id="result-count">9</span></h2>
           <div class="filters" role="group" aria-label="Filter garments">
             <button type="button" class="filter active" data-filter="all" aria-pressed="true">All</button>
-            <button type="button" class="filter" data-filter="top" aria-pressed="false">Tops</button>
+            <button type="button" class="filter" data-filter="tee" aria-pressed="false">T-Shirts</button>
+            <button type="button" class="filter" data-filter="shirt" aria-pressed="false">Shirts</button>
             <button type="button" class="filter" data-filter="dress" aria-pressed="false">Dresses</button>
             <button type="button" class="filter" data-filter="pants" aria-pressed="false">Trousers</button>
           </div>
@@ -58,12 +59,12 @@
       </section>
     </main>
 
-    <footer class="site-footer page-width"><span>Fitting Room prototype</span><a href="#top">Back to top</a></footer>
+    <footer class="site-footer page-width"><span>PACE · Original sample store</span><a href="#top">Back to top</a></footer>
 
     <div class="modal" id="fitting-room" role="dialog" aria-modal="true" aria-labelledby="room-title" hidden>
       <div class="room-shell">
         <header class="room-header">
-          <span class="room-heading">Fitting Room <span aria-hidden="true">/</span> Live preview</span>
+          <span class="room-heading">PACE <span aria-hidden="true">/</span> Live preview</span>
           <button id="close-room" type="button" class="text-button">Close <span aria-hidden="true">×</span></button>
         </header>
         <div class="room-content">
@@ -94,7 +95,7 @@
             <div class="selected-product" id="selected-product"></div>
             <h2 id="room-title">Try it on</h2>
             <p class="room-description">A 2D drawing follows your pose. This is a visual guide, not a size or fit recommendation.</p>
-            <div class="switcher-section"><h3>Switch garment</h3><div class="garment-switcher" id="garment-switcher" role="group" aria-label="Switch sample garment"></div></div>
+            <div class="switcher-section"><h3>Try another design</h3><div class="garment-switcher" id="garment-switcher" role="group" aria-label="Switch sample garment"></div></div>
             <button id="back-to-collection" class="back-button" type="button">Back to garments</button>
           </aside>
         </div>

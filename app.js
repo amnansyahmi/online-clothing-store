@@ -37,11 +37,11 @@ function renderProducts(filter = 'all') {
   grid.innerHTML = visible.map(product => `
     <article class="product-card">
       <div class="product-image" style="--tile:${product.tile}">
-        <span class="sample-tag">Demo garment</span>
+        <span class="sample-tag">Concept design</span>
         ${productArt(product)}
       </div>
       <div class="product-info">
-        <div><h3>${product.name}</h3><p>${product.colorName}</p></div>
+        <div><h3>${product.name}</h3><p>${product.category} · ${product.colorName}</p></div>
         <span class="color-chip" style="--garment:${product.color}" role="img" aria-label="${product.colorName} color"></span>
       </div>
       <button class="try-button" type="button" data-product="${product.id}" aria-label="Try on ${product.name}">Try on camera</button>
@@ -53,7 +53,7 @@ function selectProduct(product) {
   selected = product;
   $('#selected-product').innerHTML = `
     <div class="selected-thumb" style="--tile:${product.tile}">${productArt(product)}</div>
-    <div><h3>${product.name}</h3><p>Demo garment · ${product.colorName}</p></div>
+    <div><h3>${product.name}</h3><p>${product.category} · ${product.colorName}</p></div>
   `;
   $('#garment-switcher').innerHTML = products.map(item => `
     <button class="switch-item" type="button" data-switch="${item.id}" aria-label="Switch to ${item.name}" aria-pressed="${item.id === product.id}">
@@ -328,7 +328,7 @@ captureButton.addEventListener('click', () => {
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = `fitting-room-${selected.id}.png`;
+    link.download = `pace-preview-${selected.id}.png`;
     link.click();
     setTimeout(() => URL.revokeObjectURL(url), 30_000);
   }, 'image/png');

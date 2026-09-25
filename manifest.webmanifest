@@ -1,7 +1,7 @@
 {
-  "name": "Fitting Room Prototype",
-  "short_name": "Fitting Room",
-  "description": "Try sample garment overlays with your camera.",
+  "name": "PACE Sample Store",
+  "short_name": "PACE",
+  "description": "Browse original sportswear designs and preview them with your camera.",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
