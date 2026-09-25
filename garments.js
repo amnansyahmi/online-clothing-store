@@ -1,10 +1,10 @@
 export const products = [
-  { id:'linen-shirt', name:'The Linen Shirt', type:'top', label:'RELAXED FIT', price:'RM 189', color:'#e9d9ba', trim:'#cfbd9c', tile:'#dfdfd3', material:'Soft linen · Sand' },
-  { id:'studio-tee', name:'The Studio Tee', type:'top', label:'EVERYDAY EDIT', price:'RM 129', color:'#8d4538', trim:'#713a31', tile:'#dbc7bd', material:'Cotton jersey · Clay' },
-  { id:'column-dress', name:'The Column Dress', type:'dress', label:'THE NEW CLASSIC', price:'RM 329', color:'#303d32', trim:'#243027', tile:'#bdc5af', material:'Cotton blend · Moss' },
-  { id:'daylight-dress', name:'The Daylight Dress', type:'dress', label:'EASY DAYS', price:'RM 299', color:'#d7a27e', trim:'#bd8567', tile:'#e7d4c6', material:'Soft cotton · Apricot' },
-  { id:'tailored-trouser', name:'The Tailored Trouser', type:'pants', label:'A GOOD PAIR', price:'RM 249', color:'#545a56', trim:'#424844', tile:'#cbd0c7', material:'Tailored twill · Slate' },
-  { id:'weekend-trouser', name:'The Weekend Trouser', type:'pants', label:'OFF DUTY', price:'RM 229', color:'#c6b295', trim:'#ae9c83', tile:'#e3d8c9', material:'Cotton twill · Oat' },
+  { id:'linen-shirt', name:'Collared shirt', type:'top', colorName:'Sand', color:'#e9d9ba', trim:'#cfbd9c', tile:'#e6e5de' },
+  { id:'studio-tee', name:'Crew-neck top', type:'top', colorName:'Clay', color:'#8d4538', trim:'#713a31', tile:'#e3d7d1' },
+  { id:'column-dress', name:'Straight dress', type:'dress', colorName:'Deep green', color:'#303d32', trim:'#243027', tile:'#dce1d7' },
+  { id:'daylight-dress', name:'Flared dress', type:'dress', colorName:'Peach', color:'#d7a27e', trim:'#bd8567', tile:'#ebddd4' },
+  { id:'tailored-trouser', name:'Straight trousers', type:'pants', colorName:'Charcoal', color:'#545a56', trim:'#424844', tile:'#dce0dc' },
+  { id:'weekend-trouser', name:'Relaxed trousers', type:'pants', colorName:'Oat', color:'#c6b295', trim:'#ae9c83', tile:'#e8e2d8' },
 ];
 
 // Original vector garment artwork is also used for the collection thumbnails.
@@ -48,7 +48,7 @@ export function renderGarment(ctx, product, landmarks, mapping) {
   const torsoHeight=Math.abs((hl.y+hr.y)/2-(sl.y+sr.y)/2);
   if (shoulderWidth<25 || torsoHeight<35 || shoulderWidth>mapping.width*.85) return false;
   const c=product.color,t=product.trim;
-  ctx.save();ctx.globalAlpha=.91;ctx.lineJoin='round';
+  ctx.save();ctx.lineJoin='round';
   if(product.type==='pants'){
     const k1=point(landmarks,25,mapping),k2=point(landmarks,26,mapping);
     const a1=point(landmarks,27,mapping),a2=point(landmarks,28,mapping);

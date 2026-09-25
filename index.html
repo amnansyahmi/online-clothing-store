@@ -3,78 +3,100 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="theme-color" content="#f5f2eb" />
-    <meta name="description" content="Discover the collection and preview each look on yourself with a private live camera try-on." />
+    <meta name="theme-color" content="#f7f7f4" />
+    <meta name="description" content="A prototype clothing catalog with live camera try-on." />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="./manifest.webmanifest" />
     <link rel="icon" href="./assets/icon.svg" type="image/svg+xml" />
     <link rel="apple-touch-icon" href="./assets/icon-180.png" />
     <link rel="stylesheet" href="./styles.css" />
-    <title>FORMA — Wear the moment</title>
+    <title>Fitting Room | Camera try-on prototype</title>
   </head>
   <body>
-    <div class="announcement">A NEW WAY TO SEE YOURSELF IN IT <span aria-hidden="true">✳</span> THE FITTING ROOM IS OPEN</div>
-    <header class="site-header">
-      <a class="wordmark" href="#top" aria-label="FORMA home">FORMA<span class="wordmark-dot">.</span></a>
-      <nav class="desktop-nav" aria-label="Main navigation">
-        <a href="#collection">The collection</a>
-        <a href="#how-it-works">How it works</a>
+    <header class="site-header" id="top">
+      <a class="site-name" href="#top">Fitting Room<span class="site-name-mark" aria-hidden="true">/</span></a>
+      <nav aria-label="Main navigation">
+        <a href="#catalog">Garments</a>
+        <a href="#about-try-on">About the preview</a>
       </nav>
-      <a class="header-action" href="#collection">Explore collection <span aria-hidden="true">↗</span></a>
+      <span class="prototype-label">Prototype</span>
     </header>
 
-    <main id="top">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="asterisk">✳</span> THE DIGITAL FITTING ROOM · VOL. 01</p>
-          <h1 id="hero-title">See it on<br /><em>yourself.</em></h1>
-          <p class="hero-description">A considered collection, made easier to imagine. Find a piece you love and preview it live in your own space.</p>
-          <a class="button button-dark" href="#collection">Explore the collection <span aria-hidden="true">↗</span></a>
-          <div class="hero-footnote"><span class="footnote-line"></span> YOUR CAMERA. YOUR MIRROR. YOUR MOMENT.</div>
+    <main>
+      <section class="catalog-intro page-width" aria-labelledby="catalog-title">
+        <div>
+          <p class="overline">Camera try-on prototype</p>
+          <h1 id="catalog-title">Choose a garment.<br />See it on yourself.</h1>
         </div>
-        <div class="hero-art" aria-hidden="true">
-          <div class="hero-orbit orbit-one"></div><div class="hero-orbit orbit-two"></div>
-          <div class="hero-sun"></div>
-          <div class="hero-figure"><div class="figure-head"></div><div class="figure-neck"></div><div class="figure-dress"></div><div class="figure-arm figure-arm-left"></div><div class="figure-arm figure-arm-right"></div><div class="figure-leg figure-leg-left"></div><div class="figure-leg figure-leg-right"></div></div>
-          <div class="art-label"><span>01 / 03</span><span>THE FITTING ROOM</span></div>
+        <div class="intro-aside">
+          <span class="intro-rule" aria-hidden="true"></span>
+          <p>Pick a sample piece and open the camera. The preview follows your pose as you move.</p>
+          <p class="sample-disclosure">These are demonstration garments, not items for sale.</p>
         </div>
-        <div class="hero-side-note">SCROLL TO EXPLORE <span aria-hidden="true">↓</span></div>
       </section>
 
-      <section class="collection section-wrap" id="collection" aria-labelledby="collection-title">
-        <div class="section-heading"><div><p class="eyebrow">THE EDIT / 001—006</p><h2 id="collection-title">Pieces to <em>make yours.</em></h2></div><p>Consider this your invitation to try something new.<br />Choose a piece, then step into the fitting room.</p></div>
-        <div class="filters" role="group" aria-label="Filter collection">
-          <button class="filter active" type="button" data-filter="all" aria-pressed="true">All pieces <span>06</span></button>
-          <button class="filter" type="button" data-filter="top" aria-pressed="false">Tops <span>02</span></button>
-          <button class="filter" type="button" data-filter="dress" aria-pressed="false">Dresses <span>02</span></button>
-          <button class="filter" type="button" data-filter="pants" aria-pressed="false">Trousers <span>02</span></button>
+      <section class="catalog page-width" id="catalog" aria-labelledby="catalog-heading">
+        <div class="catalog-toolbar">
+          <h2 id="catalog-heading">Sample garments <span id="result-count">6</span></h2>
+          <div class="filters" role="group" aria-label="Filter garments">
+            <button type="button" class="filter active" data-filter="all" aria-pressed="true">All</button>
+            <button type="button" class="filter" data-filter="top" aria-pressed="false">Tops</button>
+            <button type="button" class="filter" data-filter="dress" aria-pressed="false">Dresses</button>
+            <button type="button" class="filter" data-filter="pants" aria-pressed="false">Trousers</button>
+          </div>
         </div>
         <div class="product-grid" id="product-grid" aria-live="polite"></div>
       </section>
 
-      <section class="how-it-works" id="how-it-works" aria-labelledby="how-title">
-        <div class="section-wrap how-inner"><div><p class="eyebrow">A NEW PERSPECTIVE</p><h2 id="how-title">The fitting room,<br /><em>wherever you are.</em></h2></div><div class="steps"><div class="step"><span>01</span><div><h3>Find your piece</h3><p>Browse the edit and select a silhouette.</p></div></div><div class="step"><span>02</span><div><h3>Open your camera</h3><p>Stand back, face the camera, and let us find your outline.</p></div></div><div class="step"><span>03</span><div><h3>See the look</h3><p>Move naturally and capture a preview if you like.</p></div></div></div></div>
+      <section class="about page-width" id="about-try-on" aria-labelledby="about-heading">
+        <div><p class="overline">Before you try it</p><h2 id="about-heading">What this preview can show</h2></div>
+        <div class="about-copy">
+          <p>The camera tracks your shoulders, hips and legs to place a 2D garment drawing over the video. Stand back so the relevant parts of your body are visible.</p>
+          <p>It does not determine your size or reproduce fabric texture and drape. Your camera frames are processed in the browser. If you save an image, it downloads to your device.</p>
+        </div>
       </section>
     </main>
-    <footer class="footer"><span class="wordmark">FORMA<span class="wordmark-dot">.</span></span><span>MADE TO BE SEEN ON YOU.</span><span>© 2026 FORMA</span></footer>
+
+    <footer class="site-footer page-width"><span>Fitting Room prototype</span><a href="#top">Back to top</a></footer>
 
     <div class="modal" id="fitting-room" role="dialog" aria-modal="true" aria-labelledby="room-title" hidden>
-      <div class="room-layout">
-        <div class="room-topbar"><div class="room-brand">FORMA<span>.</span> <span class="room-divider">/</span> THE FITTING ROOM</div><button id="close-room" class="room-close" type="button" aria-label="Close fitting room">Close <span aria-hidden="true">×</span></button></div>
-        <div class="room-main">
-          <div class="mirror-area">
-            <div class="mirror-frame" id="mirror-frame">
+      <div class="room-shell">
+        <header class="room-header">
+          <span class="room-heading">Fitting Room <span aria-hidden="true">/</span> Live preview</span>
+          <button id="close-room" type="button" class="text-button">Close <span aria-hidden="true">×</span></button>
+        </header>
+        <div class="room-content">
+          <div class="mirror-column">
+            <div class="mirror" id="mirror-frame">
               <video id="camera" autoplay muted playsinline aria-label="Live camera preview"></video>
               <canvas id="overlay" aria-hidden="true"></canvas>
-              <div class="camera-placeholder" id="camera-placeholder"><div class="camera-graphic" aria-hidden="true">✳</div><h3>Your mirror is ready.</h3><p>Allow camera access to see the selected piece on you. Your video stays on this device.</p><button id="start-camera" type="button" class="button button-light">Enable camera <span aria-hidden="true">↗</span></button></div>
-              <div class="status-pill" id="tracking-status" role="status" hidden><span class="status-light"></span><span id="tracking-text">Looking for you…</span></div>
-              <div class="mirror-guide" id="mirror-guide" hidden>Step back until your shoulders and hips are visible</div>
-              <div class="mirror-controls" id="mirror-controls" hidden><button class="round-control" type="button" id="flip-camera" aria-label="Switch camera" title="Switch camera">↺</button><button class="shutter" type="button" id="capture" aria-label="Save preview image"><span></span></button><button class="round-control" type="button" id="stop-camera" aria-label="Turn off camera" title="Turn off camera">⌁</button></div>
+              <div class="camera-placeholder" id="camera-placeholder">
+                <div class="placeholder-frame" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+                <h2 id="placeholder-title">Start your camera</h2>
+                <p>Face the camera and step back until your shoulders and hips are visible.</p>
+                <button id="start-camera" type="button" class="primary-button">Enable camera</button>
+                <div class="room-error" id="room-error" role="alert" hidden></div>
+                <button id="retry-camera" class="primary-button" type="button" hidden>Try camera again</button>
+              </div>
+              <div class="tracking-status" id="tracking-status" role="status" hidden><span class="status-light" aria-hidden="true"></span><span id="tracking-text">Looking for you…</span></div>
+              <p class="mirror-guide" id="mirror-guide" hidden>Step back until your shoulders and hips are visible</p>
+              <div class="mirror-controls" id="mirror-controls" hidden>
+                <button type="button" class="control-button" id="flip-camera" aria-label="Switch camera" title="Switch camera">Flip</button>
+                <button type="button" class="shutter" id="capture" aria-label="Save preview image" disabled><span></span></button>
+                <button type="button" class="control-button" id="stop-camera" aria-label="Turn off camera" title="Turn off camera">Stop</button>
+              </div>
             </div>
-            <p class="privacy-note">✳ The live camera and pose tracking run on your device. A photo is saved only when you tap the shutter.</p>
+            <p class="camera-footnote">The camera turns off when you close this preview or leave the app.</p>
           </div>
-          <div class="room-sidebar"><p class="eyebrow">CURRENTLY TRYING ON</p><div class="selected-product" id="selected-product"></div><h2 id="room-title">Make it <em>yours.</em></h2><p class="room-description">This is a style preview. The garment follows your pose; fabric, drape, and fit are illustrative.</p><div class="room-instructions"><span>FOR THE BEST VIEW</span><p>Face the camera. Keep your shoulders and hips in frame. For trousers or a dress, show your legs too. Good light helps.</p></div><div class="room-error" id="room-error" role="alert" hidden></div><button id="retry-camera" class="button button-outline" type="button" hidden>Try again ↗</button><a class="back-link" href="#collection" id="back-to-collection">← Back to collection</a></div>
+          <aside class="room-sidebar">
+            <p class="sidebar-label">Selected garment</p>
+            <div class="selected-product" id="selected-product"></div>
+            <h2 id="room-title">Try it on</h2>
+            <p class="room-description">A 2D drawing follows your pose. This is a visual guide, not a size or fit recommendation.</p>
+            <div class="switcher-section"><h3>Switch garment</h3><div class="garment-switcher" id="garment-switcher" role="group" aria-label="Switch sample garment"></div></div>
+            <button id="back-to-collection" class="back-button" type="button">Back to garments</button>
+          </aside>
         </div>
       </div>
     </div>

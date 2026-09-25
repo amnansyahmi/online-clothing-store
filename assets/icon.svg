@@ -1,1 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><rect width="512" height="512" rx="110" fill="#262a25"/><path d="M119 349V160h225v38H161v50h145v38H161v63z" fill="#f5f2eb"/><circle cx="369" cy="338" r="28" fill="#b64b31"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="76" fill="#202824"/>
+  <path d="M93 119h96M93 119v96M419 119h-96M419 119v96M93 393h96M93 393v-96M419 393h-96M419 393v-96" fill="none" stroke="#f7f7f4" stroke-width="13"/>
+  <text x="256" y="290" font-family="Arial, sans-serif" font-size="105" font-weight="700" text-anchor="middle" fill="#f7f7f4">FR</text>
+</svg>
